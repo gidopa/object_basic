@@ -1,6 +1,6 @@
 package com.object.procedure.reservation.domain;
 
-import com.object.procedure.generic.interval;
+import com.object.procedure.generic.TimeInterval;
 import java.time.DayOfWeek;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,12 +23,12 @@ public class DiscountCondition {
   // 시간 범위라는 하나의 개념을 startTime, endTime 두 개의 속성으로 표현
   //  private LocalTime startTime;
   //  private LocalTime endTime;
-  private interval interval;
+  private TimeInterval interval;
   private Integer sequence;
 
   public DiscountCondition(Long policyId, ConditionType conditionType, DayOfWeek dayOfWeek,
-      interval interval, Integer sequence) {
-    this(null, policyId, conditionType, dayOfWeek, interval, sequence);
+      TimeInterval interval, Integer sequence) {
+    this(null, policyId, conditionType, dayOfWeek, TimeInterval.of(interval.getStartTime(), interval.getEndTime()), sequence);
   }
 
   public boolean isPeriodCondition() {

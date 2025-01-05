@@ -1,10 +1,11 @@
 package com.object.procedure;
 
-import com.object.object.reservation.domain.DiscountCondition.ConditionType;
-import com.object.object.reservation.domain.DiscountPolicy.PolicyType;
 import com.object.procedure.generic.Money;
+import com.object.procedure.generic.TimeInterval;
 import com.object.procedure.reservation.domain.DiscountCondition;
+import com.object.procedure.reservation.domain.DiscountCondition.ConditionType;
 import com.object.procedure.reservation.domain.DiscountPolicy;
+import com.object.procedure.reservation.domain.DiscountPolicy.PolicyType;
 import com.object.procedure.reservation.domain.Movie;
 import com.object.procedure.reservation.domain.Reservation;
 import com.object.procedure.reservation.domain.Screening;
@@ -46,10 +47,10 @@ public class Main {
     DiscountPolicy discountPolicy = new DiscountPolicy(movie.getId(), PolicyType.AMOUNT_POLICY, Money.wons(1000), null);
     discountPolicyDAO.insert(discountPolicy);
 
-    discountConditionDAO.insert(new DiscountCondition(discountPolicy.getId(), ConditionType.PERIOD_CONDITION, null, null, null, 1));
-    discountConditionDAO.insert(new DiscountCondition(discountPolicy.getId(), ConditionType.SEQUENCE_CONDITION, null, null, null, 10));
-    discountConditionDAO.insert(new DiscountCondition(discountPolicy.getId(), ConditionType.PERIOD_CONDITION, DayOfWeek.MONDAY, LocalTime.of(10, 0), LocalTime.of(12, 0), null));
-    discountConditionDAO.insert(new DiscountCondition(discountPolicy.getId(), ConditionType.PERIOD_CONDITION, DayOfWeek.WEDNESDAY, LocalTime.of(18, 0), LocalTime.of(21, 0), null));
+    discountConditionDAO.insert(new DiscountCondition(discountPolicy.getId(), ConditionType.PERIOD_CONDITION, null,  null, 1));
+    discountConditionDAO.insert(new DiscountCondition(discountPolicy.getId(), ConditionType.SEQUENCE_CONDITION, null,  null, 10));
+    discountConditionDAO.insert(new DiscountCondition(discountPolicy.getId(), ConditionType.PERIOD_CONDITION, DayOfWeek.MONDAY, TimeInterval.of(LocalTime.of(10,0), LocalTime.of(12,0)), null));
+    discountConditionDAO.insert(new DiscountCondition(discountPolicy.getId(), ConditionType.PERIOD_CONDITION, DayOfWeek.WEDNESDAY,  TimeInterval.of(LocalTime.of(18,0), LocalTime.of(21,0)), null));
 
     Screening screening = new Screening(movie.getId(), 7, LocalDateTime.of(2024, 12, 11, 18, 0));
     screeningDAO.insert(screening);
