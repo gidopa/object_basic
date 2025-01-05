@@ -27,7 +27,7 @@ public class ReservationService {
 
     Money fee;
     if (found) {
-      fee = movie.getFee().minus(policy.calculateDiscount(policy, movie));
+      fee = movie.getFee().minus(policy.calculateDiscount(movie));
     } else {
       fee = movie.getFee();
     }

@@ -2,6 +2,7 @@ package com.object.object.reservation.domain;
 
 import com.object.object.generic.TimeInterval;
 import java.time.DayOfWeek;
+import java.time.LocalTime;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,19 +28,19 @@ public class DiscountCondition {
   private Integer sequence;
 
   public DiscountCondition(Long policyId, ConditionType conditionType, DayOfWeek dayOfWeek,
-      TimeInterval interval, Integer sequence) {
-    this(null, policyId, conditionType, dayOfWeek, interval, sequence);
+      LocalTime startTime, LocalTime endTime, Integer sequence) {
+    this(null, policyId, conditionType, dayOfWeek, TimeInterval.of(startTime, endTime), sequence);
   }
 
-  public boolean isPeriodCondition() {
+  private boolean isPeriodCondition() {
     return ConditionType.PERIOD_CONDITION.equals(conditionType);
   }
 
-  public boolean isSequenceCondition() {
+  private boolean isSequenceCondition() {
     return ConditionType.SEQUENCE_CONDITION.equals(conditionType);
   }
 
-  public boolean isCombinedCondition() {
+  private boolean isCombinedCondition() {
     return ConditionType.COMBINED_CONDITION.equals(conditionType);
   }
 

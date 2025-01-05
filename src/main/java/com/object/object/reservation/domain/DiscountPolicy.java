@@ -8,10 +8,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class DiscountPolicy {
+
   public enum PolicyType {PERCENT_POLICY, AMOUNT_POLICY}
 
   private Long id;
@@ -22,33 +24,32 @@ public class DiscountPolicy {
   private List<DiscountCondition> conditions;
 
   public DiscountPolicy(Long movieId, PolicyType policyType, Money amount, Double percent) {
-   this(null, movieId, policyType, amount, percent, new ArrayList<>());
+    this(null, movieId, policyType, amount, percent, new ArrayList<>());
   }
 
   public boolean findDiscountCondition(Screening screening) {
-    for(DiscountCondition condition : conditions) {
-      if(condition.isSatisfiedBy(screening)) {
+    for (DiscountCondition condition : conditions) {
+      if (condition.isSatisfiedBy(screening)) {
         return true;
       }
     }
     return false;
   }
 
-  public boolean isAmountPolicy() {
+  private boolean isAmountPolicy() {
     return PolicyType.AMOUNT_POLICY.equals(policyType);
   }
 
-  public boolean isPercentPolicy() {
+  private boolean isPercentPolicy() {
     return PolicyType.PERCENT_POLICY.equals(policyType);
   }
 
-  public Money calculateDiscount(DiscountPolicy policy, Movie movie) {
-    if (policy.isAmountPolicy()) {
-      return policy.getAmount();
-    } else if (policy.isPercentPolicy()) {
-      return movie.getFee().times(policy.getPercent());
+  public Money calculateDiscount(Movie movie) {
+    if (isAmountPolicy()) {
+      return amount;
+    } else if (isPercentPolicy()) {
+      return movie.getFee().times(percent);
     }
-
     return Money.ZERO;
   }
 }
