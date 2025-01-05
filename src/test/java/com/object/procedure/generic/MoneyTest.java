@@ -1,4 +1,4 @@
-package com.object.object.generic;
+package com.object.procedure.generic;
 
 import static org.junit.jupiter.api.Assertions.*;
 

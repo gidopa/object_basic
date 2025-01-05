@@ -1,4 +1,4 @@
-package com.object.object.reservation.service;
+package com.object.procedure.reservation.service;
 
 import com.object.object.generic.Money;
 import com.object.object.reservation.domain.DiscountCondition;
