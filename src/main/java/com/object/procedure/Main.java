@@ -1,10 +1,10 @@
 package com.object.procedure;
 
+import com.object.object.reservation.domain.DiscountCondition.ConditionType;
+import com.object.object.reservation.domain.DiscountPolicy.PolicyType;
 import com.object.procedure.generic.Money;
 import com.object.procedure.reservation.domain.DiscountCondition;
-import com.object.procedure.reservation.domain.DiscountCondition.ConditionType;
 import com.object.procedure.reservation.domain.DiscountPolicy;
-import com.object.procedure.reservation.domain.DiscountPolicy.PolicyType;
 import com.object.procedure.reservation.domain.Movie;
 import com.object.procedure.reservation.domain.Reservation;
 import com.object.procedure.reservation.domain.Screening;

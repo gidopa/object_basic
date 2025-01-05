@@ -1,20 +1,18 @@
-package com.object.procedure.reservation.service;
+package com.object.object.reservation.service;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import com.object.procedure.generic.Money;
-import com.object.procedure.reservation.domain.DiscountCondition;
-import com.object.procedure.reservation.domain.DiscountCondition.ConditionType;
-import com.object.procedure.reservation.domain.DiscountPolicy;
-import com.object.procedure.reservation.domain.DiscountPolicy.PolicyType;
-import com.object.procedure.reservation.domain.Movie;
-import com.object.procedure.reservation.domain.Reservation;
-import com.object.procedure.reservation.domain.Screening;
-import com.object.procedure.reservation.persistence.DiscountConditionDAO;
-import com.object.procedure.reservation.persistence.DiscountPolicyDAO;
-import com.object.procedure.reservation.persistence.MovieDAO;
-import com.object.procedure.reservation.persistence.ReservationDAO;
-import com.object.procedure.reservation.persistence.ScreeningDAO;
+import com.object.object.generic.Money;
+import com.object.object.reservation.domain.DiscountCondition;
+import com.object.object.reservation.domain.DiscountCondition.ConditionType;
+import com.object.object.reservation.domain.DiscountPolicy;
+import com.object.object.reservation.domain.DiscountPolicy.PolicyType;
+import com.object.object.reservation.domain.Movie;
+import com.object.object.reservation.domain.Reservation;
+import com.object.object.reservation.domain.Screening;
+import com.object.object.reservation.persistence.DiscountConditionDAO;
+import com.object.object.reservation.persistence.DiscountPolicyDAO;
+import com.object.object.reservation.persistence.MovieDAO;
+import com.object.object.reservation.persistence.ReservationDAO;
+import com.object.object.reservation.persistence.ScreeningDAO;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
