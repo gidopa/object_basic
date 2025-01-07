@@ -22,6 +22,7 @@ public class Screening {
     this(null, movieId, sequence, screeningTime);
   }
 
+  // 프로세스를 데이터로 이관
   public boolean isPlayedIn(DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime) {
     return this.screeningTime.getDayOfWeek().equals(dayOfWeek) &&
         (this.screeningTime.toLocalTime().equals(startTime) || this.screeningTime.toLocalTime().isAfter(startTime)) &&

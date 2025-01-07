@@ -27,6 +27,7 @@ public class DiscountPolicy {
     this(null, movieId, policyType, amount, percent, new ArrayList<>());
   }
 
+  // 데이터의 getter를 사용하는 로직을 데이터 내부로 이동
   public boolean findDiscountCondition(Screening screening) {
     for (DiscountCondition condition : conditions) {
       if (condition.isSatisfiedBy(screening)) {
